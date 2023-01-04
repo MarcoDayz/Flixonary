@@ -6,7 +6,10 @@ const Categories = () => {
 
     return (
         <div style={{
-            width: '80%'
+            display: 'flex',
+            flexDirection: 'column',
+            width: '80%',
+            gap: '1rem'
         }}>
             {test.map((item, index) => (
                <Category key={index} item={item} />

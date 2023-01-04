@@ -19,8 +19,8 @@ const Navbar = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 width: '100%',
-                border: 'solid black 2px'}}>
-            <h1>ShowFish</h1>
+                borderBottom: 'solid black 2px'}}>
+            <h1>StackFlix</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     style={{width: '20rem'}}
