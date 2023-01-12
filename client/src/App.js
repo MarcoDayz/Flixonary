@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import SearchResults from "./pages/SearchResults";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
     // const errorPage = useNavigate()
@@ -38,6 +40,8 @@ const App = () => {
             <Route path={'/'} element={<Navbar />}>
                 <Route path={'/'} element={<Home />}/>
                 <Route path={'/search-results'} element={<SearchResults />}/>
+                <Route path={'/login'} element={<Login />}/>
+                <Route path={'/register'} element={<Register />}/>
             </Route>
             <Route path={'/errorpage'} element={<Error />}/>
         </Routes>

@@ -58,8 +58,12 @@ const Navbar = () => {
             </form>
             <div
             style={navBarStyle.optionsDiv}>
-                <button>Join Now</button>
-                <button>Login</button>  
+                <Link to={'/register'} style={linkStyles.link}>
+                    <h3>Join Now</h3>
+                </Link>
+                <Link to={'/login'} style={linkStyles.link}>
+                    <h3>Login</h3>
+                </Link>
             </div>
         </div>
         <Outlet />
