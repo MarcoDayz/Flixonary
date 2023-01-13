@@ -6,9 +6,11 @@ const SearchBarContext = createContext()
 
 export const SearchBarProvider =({children})=> {
     const searchPage = useNavigate()
+    const singleMovieNav = useNavigate()
     // const errorpage = useNavigate()
     const [input, setInput] = useState('')
     const [movieData, setMovieData] = useState([])
+    const [navId, setNavId] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,12 +23,21 @@ export const SearchBarProvider =({children})=> {
               'X-RapidAPI-Host': 'movie-database-alternative.p.rapidapi.com'
             }})
             setMovieData(data.Search)
-            searchPage('/search-results')
+            sessionStorage.setItem('searchedMovies', JSON.stringify(data.Search))
+            sessionStorage.setItem('searchedInput', input)
+            searchPage('/movies')
             console.log(data)
             // setInput('')
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const clickMovie = (e) => {
+        sessionStorage.setItem('movie', e.target.id)
+        // setNavId(e.target.id)
+        // console.log(e.target.id)
+        singleMovieNav(`/movies/${e.target.id}`)
     }
 
     const handleChange = (e) => {
@@ -35,8 +46,19 @@ export const SearchBarProvider =({children})=> {
 
     return (
         <SearchBarContext.Provider
-        value={{setInput, input, handleChange, handleSubmit, movieData}}>
-            {children}
+        value={
+            {
+            setInput,
+            input,
+            handleChange,
+            handleSubmit,
+            movieData,
+            setMovieData,
+            clickMovie,
+            // navId,
+            // setNavId
+            }}>
+        {children}
         </SearchBarContext.Provider>
     )
 };

@@ -1,8 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import SearchBarContext from "../context/searchBarContext";
 
 const SearchResults = () => {
-    const {movieData, input} = useContext(SearchBarContext)
+    const {movieData, input, clickMovie, setMovieData, setInput} = useContext(SearchBarContext)
+
+
+    useEffect(() => {
+        const movies = sessionStorage.getItem('searchedMovies')
+        const searchedInput = sessionStorage.getItem('searchedInput')
+        if(!movies){
+            console.log('No Movies in session')
+        }else{
+            // console.log(JSON.parse(movies))
+            setMovieData(JSON.parse(movies))
+        }
+
+        if(!searchedInput){
+            console.log('No Input in session')
+        }else{
+            // console.log(searchedInput)
+            setInput(searchedInput)
+        }
+    }, [])
 
     const searchResultsStyle = {
         main: {
@@ -35,7 +54,12 @@ const SearchResults = () => {
             </h1>
             <div style={searchResultsStyle.resultsContainer}>
                 {movieData.map((movie, index) => (
-                    <img style ={searchResultsStyle.imgStyle} src={movie.Poster} key={index} alt={movie.Title} />
+                    <img id={`${movie.imdbID}`}
+                    style={searchResultsStyle.imgStyle}
+                    src={movie.Poster}
+                    key={index}
+                    alt={movie.Title}
+                    onClick={clickMovie}/>
                 ))}
             </div>
         </div>
