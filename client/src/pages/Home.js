@@ -4,7 +4,8 @@ const Home = () => {
         main: {
             display: 'flex',
             flexDirection: 'column',
-            marginTop: '3rem'
+            marginTop: '8rem',
+            alignItems: 'center'
         }
     }
 

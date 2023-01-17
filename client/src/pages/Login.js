@@ -6,8 +6,7 @@ const Login = () => {
             flexDirection: 'column',
             alignItems: 'center',
             gap: '2rem',
-            width: '90%',
-            marginTop: '3rem',
+            marginTop: '8rem',
             marginBottom: '2rem'
         },
         form: {

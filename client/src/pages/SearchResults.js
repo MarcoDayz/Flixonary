@@ -4,6 +4,13 @@ import SearchBarContext from "../context/searchBarContext";
 const SearchResults = () => {
     const {movieData, input, clickMovie, setMovieData, setInput} = useContext(SearchBarContext)
 
+    const posterFilter = (movieData) => {
+        movieData.forEach(movie => {
+            if(movie.Poster === null){
+                console.log(movie)
+            }
+        });
+    }
 
     useEffect(() => {
         const movies = sessionStorage.getItem('searchedMovies')
@@ -21,24 +28,26 @@ const SearchResults = () => {
             // console.log(searchedInput)
             setInput(searchedInput)
         }
+
+        posterFilter(movieData)
     }, [])
 
     const searchResultsStyle = {
         main: {
             display: 'flex',
             flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
             gap: '2rem',
-            width: '90%',
-            marginTop: '3rem',
+            marginTop: '8rem',
             marginBottom: '2rem'
         },
         resultsContainer: {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            justifyContent: 'center',
             alignItems: 'center',
+            width: '81rem',
             gap: '2rem'
         },
         imgStyle: {
@@ -54,7 +63,9 @@ const SearchResults = () => {
             </h1>
             <div style={searchResultsStyle.resultsContainer}>
                 {movieData.map((movie, index) => (
-                    <img id={`${movie.imdbID}`}
+                    <img
+                    className={'imgPoster'}
+                    id={`${movie.imdbID}`}
                     style={searchResultsStyle.imgStyle}
                     src={movie.Poster}
                     key={index}

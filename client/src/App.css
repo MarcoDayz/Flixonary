@@ -1,9 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+
+:root{
+    --bodyFont: 'Heebo', sans-serif;
+    --backgroundLight: rgb(0 73 73);
+    --backgroundDark: rgb(0, 0, 0);
+    --fontColor: aliceblue;
+    --transBG: rgba(0, 0, 0, 0.35);
+    --hoverBorder: #008a88;
+}
+
 *{
     margin: 0;
 }
+
 #root{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+}
+
+html{
+    background-color: var(--backgroundDark);
+    background-image: linear-gradient(0deg, var(--backgroundDark), var(--backgroundLight) 50%);
+    background-repeat: no-repeat;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    color: var(--fontColor);
+}
+
+.navSearch{
+    border: solid transparent 1.5px;
+    border-radius: 5px;
+    height: 2rem;
+    color: var(--fontColor);
+}
+.navSearch:hover{
+    border: solid var(--hoverBorder) 1.5px;
+}
+.navSearch:focus{
+    outline: none;
+    border: solid var(--hoverBorder) 1.5px;
+}
+
+.imgPoster{
+    border-radius: 10px;
+    transition: ease-in .1s;
+}
+.imgPoster:hover{
+    cursor: pointer;
+    scale: 1.025;
+}
+
+form{
+    font-family: var(--bodyFont);
+    font-size: 20px;
+}
+.inputBox{
+    border: solid transparent 1.5px;
+}
+.inputBox:hover{
+    border: solid var(--hoverBorder) 1.5px;
+}
+
+.registerBtn{
+    background-color: var(--backgroundLight);
+    border: solid transparent 1.5px;
+    /* border: none; */
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: large;
+    color: var(--fontColor);
+    padding: 10px;
+    font-family: var(--bodyFont);
+    transition: ease-in-out .1s;
+}
+.registerBtn:hover{
+    cursor: pointer;
+    border: solid var(--hoverBorder) 1.5px;
+    background-color: var(--backgroundDark);
+}
+.registerBtn:active{
+    scale: .96;
 }
