@@ -6,7 +6,7 @@
     --backgroundDark: rgb(0, 0, 0);
     --fontColor: aliceblue;
     --transBG: rgba(0, 0, 0, 0.35);
-    --hoverBorder: #008a88;
+    --hoverBorder: #00a4a1;
 }
 
 *{
@@ -43,11 +43,13 @@ html{
 
 .imgPoster{
     border-radius: 10px;
+    border: solid transparent 1.5px;
     transition: ease-in .1s;
 }
 .imgPoster:hover{
     cursor: pointer;
     scale: 1.025;
+    border: solid var(--hoverBorder) 1.5px;
 }
 
 form{

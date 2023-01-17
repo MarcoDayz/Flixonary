@@ -51,7 +51,7 @@ const SearchResults = () => {
             gap: '2rem'
         },
         imgStyle: {
-            width: '300px',
+            width: '295px',
             height: '450px'
         }
     }

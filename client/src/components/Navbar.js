@@ -14,7 +14,8 @@ const Navbar = () => {
             height: '6rem',
             paddingBottom: '2rem',
             position: 'fixed',
-            backgroundImage: 'linear-gradient(180deg, rgb(0 24 24),rgb(0 52 52),rgb(0 73 73 / 97%), #00000000)'
+            backgroundImage: 'linear-gradient(180deg, rgb(0 24 24),rgb(0 52 52),rgb(0 73 73 / 97%), #00000000)',
+            zIndex: '1'
 
         },
         h1Style: {
@@ -22,7 +23,7 @@ const Navbar = () => {
         },
         inputStyle: {
             width: '20rem',
-            backgroundColor: 'rgb(0 73 73)',
+            backgroundColor: 'rgb(0 32 32)',
             fontSize: 'large',
             paddingLeft: '10px'
         },
