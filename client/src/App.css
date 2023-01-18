@@ -41,6 +41,18 @@ html{
     border: solid var(--hoverBorder) 1.5px;
 }
 
+.searchIcon{
+    scale: 1.5;
+    transition: ease-in-out .2s;
+}
+.searchIcon:hover{
+    cursor: pointer;
+    color: var(--hoverBorder);
+}
+.searchIcon:active{
+    scale: 1.3;
+}
+
 .imgPoster{
     border-radius: 10px;
     border: solid transparent 1.5px;

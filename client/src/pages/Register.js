@@ -14,7 +14,7 @@ const Register = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '60rem',
+            width: '55rem',
             gap: '1rem',
             borderRadius: '1rem',
             padding: '2rem',
@@ -25,7 +25,6 @@ const Register = () => {
             flexDirection: 'column',
             justifyContent: 'space-between',
             width: '26rem'
-
         },
         inputElem: {
             width: '25rem',
@@ -50,8 +49,7 @@ const Register = () => {
 
     return (
         <div style={registerStyle.main}>
-            <h1>Register Page</h1>
-
+            {/* <h1>Register Page</h1> */}
             <form style={registerStyle.form}>
                 <div style={registerStyle.inputDivs}>
                     <label>Username </label>

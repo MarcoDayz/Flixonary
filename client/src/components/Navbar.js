@@ -2,6 +2,9 @@ import { useContext } from "react";
 import SearchBarContext from "../context/searchBarContext";
 import { Outlet, Link } from "react-router-dom";
 
+import {AiOutlineSearch} from "react-icons/ai"
+import { IconContext } from "react-icons/lib";
+
 const Navbar = () => {
     const {input, handleChange, handleSubmit} = useContext(SearchBarContext)
 
@@ -36,7 +39,7 @@ const Navbar = () => {
         },
         form: {
             display: 'flex',
-            width: '25rem',
+            width: '23.2rem',
             justifyContent: 'space-between'
         }
     }
@@ -59,7 +62,7 @@ const Navbar = () => {
                     <span style={linkStyles.span}>Flix</span>onary
                 </h1>
             </Link>
-            <form onSubmit={handleSubmit}
+            <form onSubmit={(e) => handleSubmit(e)}
             style={navBarStyle.form}>
                 <input
                     className='navSearch'
@@ -67,7 +70,10 @@ const Navbar = () => {
                     type={'text'}
                     value={input}
                     onChange={handleChange} />
-                <input type={'submit'} />
+                {/* <input type={'submit'}></input> */}
+                <IconContext.Provider value={{style: {height: '2rem'}, className: 'searchIcon'}}>
+                    <AiOutlineSearch onClick={handleSubmit}/>
+                </IconContext.Provider>
             </form>
             <div
             style={navBarStyle.optionsDiv}>
