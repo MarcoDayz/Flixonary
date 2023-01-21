@@ -2,7 +2,7 @@ const Login = () => {
 
     return (
         <div className={'loginMain'}>
-            <h1>Login Page</h1>
+            {/* <h1>Login Page</h1> */}
             <form  className={'loginForm'}>
                 <div className={'log-InputContainer'}>
                     <div>
