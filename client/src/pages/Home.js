@@ -1,17 +1,11 @@
 const Home = () => {
-    
-    const homeStyle = {
-        main: {
-            display: 'flex',
-            flexDirection: 'column',
-            marginTop: '8rem',
-            alignItems: 'center'
-        }
-    }
 
     return(
-        <div style={homeStyle.main}>
+        <div className="homeMain">
             <h1>Home</h1>
+            <div style={{height: '80vh'}}>
+                Welcome!
+            </div>
         </div>
     )
 

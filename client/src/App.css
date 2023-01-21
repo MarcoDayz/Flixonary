@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
-
-:root{
-    --bodyFont: 'Heebo', sans-serif;
-    --backgroundLight: rgb(0 73 73);
-    --backgroundDark: rgb(0, 0, 0);
-    --fontColor: aliceblue;
-    --transBG: rgba(0, 0, 0, 0.35);
-    --hoverBorder: #00a4a1;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Heebo&display=swap');
 *{
     margin: 0;
+}
+:root{
+    --bodyFont: 'Heebo', sans-serif;
+    --headerFont: 'DM Serif Display', serif;
+    --backgroundLight: #403686;
+    --backgroundDark: rgb(0, 0, 0);
+    --formBG: #0e0e0e;
+    --fontColor: aliceblue;
+    --transBG: rgba(0, 0, 0, 0.35);
+    --hoverBorder: aqua;
 }
 
 #root{
@@ -20,17 +20,48 @@
 
 html{
     background-color: var(--backgroundDark);
-    background-image: linear-gradient(0deg, var(--backgroundDark), var(--backgroundLight) 50%);
     background-repeat: no-repeat;
     width: -webkit-fill-available;
     height: -webkit-fill-available;
     color: var(--fontColor);
 }
 
+form{
+    font-family: var(--bodyFont);
+    font-size: 20px;
+}
+/* --------Navigation Bar---------------- */
+.navMain{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+    position: fixed;
+    background-color: #000000ba;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.navTitle{
+    margin-left: 12px;
+    font-family: var(--headerFont);
+}
+
+.navForm{
+    display: flex;
+    width: 23.2rem;
+    justify-content: space-between;
+}
+
 .navSearch{
     border: solid transparent 1.5px;
     border-radius: 5px;
+    width: 20rem;
     height: 2rem;
+    font-size: large;
+    padding-left: 10px;
+    background-color: var(--backgroundLight);
     color: var(--fontColor);
 }
 .navSearch:hover{
@@ -53,26 +84,127 @@ html{
     scale: 1.3;
 }
 
+.navOptionsContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-right: 12px
+}
+
+.navOptions{
+    font-family: var(--headerFont);
+    position: relative;
+}
+.navOptions::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--hoverBorder);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.navOptions:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* ------------Home page------------ */
+.homeMain{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    align-items: center;
+    background-image: url('https://images8.alphacoders.com/100/1003220.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 120px 90px black inset;
+}
+
+/* -------Search Result Page--------*/
+.resultsMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+.resultContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 81rem;
+    gap: 2rem;
+}
 .imgPoster{
     border-radius: 10px;
-    border: solid transparent 1.5px;
-    transition: ease-in .1s;
+    border: solid transparent 2px;
+    transition: ease-in .05s;
+    width: 295px;
+    height: 450px;
 }
 .imgPoster:hover{
     cursor: pointer;
     scale: 1.025;
-    border: solid var(--hoverBorder) 1.5px;
+    border: solid var(--hoverBorder) 2px;
+}
+/* ------Register Page------------- */
+.registerMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
 }
 
-form{
-    font-family: var(--bodyFont);
-    font-size: 20px;
+.reg-InputContainers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26rem;
 }
+
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55rem;
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: var(--formBG);
+    backdrop-filter: blur(2px);
+}
+
 .inputBox{
     border: solid transparent 1.5px;
+    width: 25rem;
+    height: 3rem;
+    border-radius: 5px;
+    font-size: 20px;
+    color: aliceblue;
+    padding-left: 10px;
+    background-color: #403686;
 }
 .inputBox:hover{
     border: solid var(--hoverBorder) 1.5px;
+}
+
+.subscribeContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
 }
 
 .registerBtn{
@@ -90,8 +222,38 @@ form{
 .registerBtn:hover{
     cursor: pointer;
     border: solid var(--hoverBorder) 1.5px;
-    background-color: var(--backgroundDark);
+    /* background-color: var(--backgroundDark); */
 }
 .registerBtn:active{
     scale: .96;
+}
+
+/* ------Login Page------------- */
+.loginMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: var(--formBG);
+    backdrop-filter: blur(2px);
+}
+
+.log-InputContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26rem;
 }

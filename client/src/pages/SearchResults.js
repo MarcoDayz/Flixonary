@@ -32,41 +32,16 @@ const SearchResults = () => {
         posterFilter(movieData)
     }, [])
 
-    const searchResultsStyle = {
-        main: {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '2rem',
-            marginTop: '8rem',
-            marginBottom: '2rem'
-        },
-        resultsContainer: {
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            width: '81rem',
-            gap: '2rem'
-        },
-        imgStyle: {
-            width: '295px',
-            height: '450px'
-        }
-    }
-
     return (
-        <div style={searchResultsStyle.main}>
+        <div className="resultsMain">
             <h1>
                 Search results for "{input}"
             </h1>
-            <div style={searchResultsStyle.resultsContainer}>
+            <div className="resultContainer">
                 {movieData.map((movie, index) => (
                     <img
                     className={'imgPoster'}
                     id={`${movie.imdbID}`}
-                    style={searchResultsStyle.imgStyle}
                     src={movie.Poster}
                     key={index}
                     alt={movie.Title}
