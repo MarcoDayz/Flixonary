@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
     const [checked, setChecked] = useState(false)
@@ -6,7 +7,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if(username === '' ||
             email === '' ||
@@ -14,11 +15,21 @@ const Register = () => {
                 return console.log('Form needs to be filled out')
         }else if(!checked) return console.log('Box needs to be checked before submitting')
 
-        return console.log('send')
+        try {
+            const newAccount = {username,email,password,checked}
+            const {data} = await axios.post(`http://localhost:4000/register/create`, newAccount)
+            console.log(data)
+            handleReset()
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 
-    const handleCheckbox = (e) => {
-        setChecked(e.target.checked)
+    const handleReset = () => {
+        setChecked(false)
+        setUsername('')
+        setEmail('')
+        setPassword('')
     }
 
     const handleInputs = (e) => {
@@ -26,9 +37,10 @@ const Register = () => {
             setPassword(e.target.value)
         }else if(e.target.name === 'email'){
             setEmail(e.target.value)
-        }else{
+        }else if(e.target.name === 'username'){
             setUsername(e.target.value)
-
+        }else{
+            setChecked(e.target.checked)
         }
     }
     
@@ -50,7 +62,7 @@ const Register = () => {
                     name={"username"}
                     value={username}
                     className="inputBox"
-                    type={'text'}
+                    type={'username'}
                     autoComplete={'off'}
                     onChange={handleInputs}/>
                 </div>
@@ -59,6 +71,7 @@ const Register = () => {
                     <input
                     name="email"
                     className="inputBox"
+                    value={email}
                     type={'email'}
                     autoComplete={'off'}
                     onChange={handleInputs}/>
@@ -68,6 +81,7 @@ const Register = () => {
                     <input
                     name="password"
                     className="inputBox"
+                    value={password}
                     type={'password'}
                     autoComplete={'off'}
                     onChange={handleInputs}/>
@@ -77,7 +91,8 @@ const Register = () => {
                     <div>
                         <input
                         style={registerStyle.checkbox}
-                        onChange={handleCheckbox}
+                        checked={checked}
+                        onChange={handleInputs}
                         type={'checkbox'}/>
                     </div>
                 </div>

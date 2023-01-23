@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { register } from "./routes/register.js";
 
 import { dummyData } from "./dummyData.js";
 
@@ -16,6 +17,8 @@ app.use(express.json())
 app.get('/data', (req, res) => {
     res.send(dummyData)
 });
+
+app.use('/register', register)
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`)
